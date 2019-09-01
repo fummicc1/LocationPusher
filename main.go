@@ -14,7 +14,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf(r.URL.RawQuery)
 }
 
-func httpRUn() {
+func httpRun() {
 	http.HandleFunc("/location", handler) // ハンドラを登録してウェブページを表示させる
 	http.ListenAndServe(":8080", nil)
 }
@@ -29,6 +29,8 @@ func main() {
 		panic(err)
 	}
 
+	httpRun()
+
 	fmt.Printf("cert created.")
 	notification := &apns2.Notification{}
 	notification.DeviceToken = "2c00793251098ed2349830f8f3474167ec903d2b4b1a4dd65a7c900803c08028"
@@ -40,8 +42,5 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	fmt.Printf("%v %v %v\n", res.StatusCode, res.ApnsID, res.Reason)
-
-	httpRUn()
 }
