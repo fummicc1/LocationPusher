@@ -14,7 +14,7 @@ func pushNotification() {
 	fmt.Print("start.")
 
 	if err != nil {
-		panic(err)
+		fmt.Print(err)
 	}
 	fmt.Print("cert created.")
 	notification := &apns2.Notification{}
@@ -25,7 +25,7 @@ func pushNotification() {
 	res, err := client.Push(notification)
 
 	if err != nil {
-		panic(err)
+		fmt.Print(err)
 	}
 	fmt.Printf("%v %v %v\n", res.StatusCode, res.ApnsID, res.Reason)
 	wg.Done()
