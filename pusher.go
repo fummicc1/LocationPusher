@@ -11,12 +11,12 @@ import (
 func pushNotification() {
 	cert, err := certificate.FromP12File("pusher.p12", "")
 
-	fmt.Printf("start.")
+	fmt.Print("start.")
 
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("cert created.")
+	fmt.Print("cert created.")
 	notification := &apns2.Notification{}
 	notification.DeviceToken = "2c00793251098ed2349830f8f3474167ec903d2b4b1a4dd65a7c900803c08028"
 	notification.Topic = "com.fumiya.LocationShareAppWithAPNS"

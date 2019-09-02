@@ -10,7 +10,7 @@ var wg sync.WaitGroup
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, World")
-	fmt.Printf(r.URL.RawQuery)
+	fmt.Print(r.URL.RawQuery)
 }
 
 func httpRun() {
